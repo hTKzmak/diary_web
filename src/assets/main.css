@@ -18,7 +18,8 @@ select, #description{
   background-color: #fff;
 }
 
-.delete-button{
+.delete-button-day,
+.delete-button-item{
   width: 28px;
   height: 28px;
 

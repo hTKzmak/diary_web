@@ -1,14 +1,14 @@
 <template>
     <div class="task-list" v-for="elem in data">
         <div class="task-item">
-            <div class="delete-button" @click="deleteDay(elem.id)">
+            <div class="delete-button-day" @click="deleteDay(elem.id)">
                 <div class="line line-one"></div>
                 <div class="line line-two"></div>
             </div>
             <div class="day">{{ elem.dayName }}</div>
             <div class="task-item-list">
                 <div v-for="info in elem.tasks" class="task-info">
-                    <div class="delete-button" @click="deleteItem(info.id)">
+                    <div class="delete-button-item" @click="deleteItem(info.id)">
                         <div class="line line-one"></div>
                         <div class="line line-two"></div>
                     </div>
@@ -91,16 +91,31 @@ export default {
     position: relative;
 }
 
-.task-info>.delete-button {
+.delete-button-item {
     position: absolute;
     top: -5px;
     right: -15px;
+    opacity: 0;
 }
 
-.task-item>.delete-button {
+.delete-button-day {
     position: absolute;
     top: -15px;
     right: -15px;
+    opacity: 0;
 }
+
+.task-info:hover > .delete-button-item{
+    opacity: 1;
+}
+
+.task-info:hover ~ .delete-button-day{
+    opacity: 0;
+}
+
+.task-item:hover > .delete-button-day{
+    opacity: 1;
+}
+
 </style>
   
